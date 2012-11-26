@@ -1,13 +1,14 @@
-require 'point'
+require './point.rb'
 class ConvexHull
-  def compute points=ConvexHull.load_example_points
+  def compute points=load_example_points
     points.sort! {|a,b| a.x <=> b.x}
+    puts points.to_s
   end
 
-  def self.load_example_points
+  def load_example_points
     [
       Point.new(141,2),
-      Pont.new(396,417),
+      Point.new(396,417),
       Point.new(171,250),
       Point.new(277,352),
       Point.new(151,257),
@@ -18,5 +19,7 @@ class ConvexHull
       Point.new(332,315)
     ]
   end
-
 end
+
+c = ConvexHull.new
+c.compute
