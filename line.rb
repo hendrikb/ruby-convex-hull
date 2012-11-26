@@ -7,7 +7,4 @@ class Line
     self.init_y=y
   end
 
-  def has_point? point
-
-  end
 end
