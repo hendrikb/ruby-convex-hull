@@ -3,7 +3,6 @@ require './edge.rb'
 require 'pry'
 require 'set'
 require 'csv'
-
 class ConvexHull
   def self.compute points=load_example_points, be_verbose = false
     start_time = DateTime.now
@@ -17,7 +16,8 @@ class ConvexHull
     end
     end_time = DateTime.now
 
-    puts "Hull Calculation took #{end_time.strftime("%Q").to_i - start_time.strftime("%Q").to_i} microseconds" if be_verbose
+    calc_time(start_time, end_time) if be_verbose
+
     return set
   end
 
@@ -76,6 +76,23 @@ end
 def p x,y
   Point.new(x,y)
 end
+
+def calc_time start_time, end_time
+    start_ms = start_time.strftime("%Q").to_i
+    end_ms = end_time.strftime("%Q").to_i
+    duration_ms = end_ms - start_ms
+
+    if duration_ms > 2000
+      duration = (duration_ms / 1000.to_f).round(3)
+      time_unit = "seconds"
+    else
+      duration = duration_ms
+      time_unit = "microseconds"
+    end
+
+    puts "Hull Calculation took #{duration} #{time_unit}"
+end
+
 
 ## USAGE:
 # Example 1: (note how p(3,5) is not part of the hull anymore)
