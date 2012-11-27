@@ -2,6 +2,7 @@ require './point.rb'
 require './edge.rb'
 require 'pry'
 require 'set'
+require 'csv'
 
 class ConvexHull
   def compute points=load_example_points, be_verbose = false
@@ -59,13 +60,27 @@ def load_example_points
     Point.new(332,315)
   ]
 end
+
+def load_csv_example_points
+  points = Array.new
+  CSV.foreach("./random_numbers.csv", col_sep: ";", headers: true) do |row|
+    points.push Point.new(row[1].to_i, row[2].to_i)
+  end
+end
+
 def p x,y
   Point.new(x,y)
 end
 
 
 c = ConvexHull.new
-#Example 1:
+
+# Example 1:
 # c.compute [ p(1,1), p(2,1), p(3,5), p(4,3), p(7,3)], true
+
 # Example 2
-puts c.compute load_example_points, false
+# puts c.compute load_example_points, false
+
+# Example 3
+puts c.compute load_csv_example_points, true
+
