@@ -23,6 +23,10 @@ represent the complex hull of array_of_points.
 You need to fill the given `array_of_points` with instances of the
 `Geometry::Point` object.
 
+You have `be_verbose` as second parameter. Set it to true to enable a very
+talkative algorithm. Set it to false to **only** have the algorithm provide you
+an array (which you probably cannot see because you're not `puts` it)
+
 Again, see the `example.rb` for details on how to call the stuff using given
 arrays, points from CSV-files and such.
 
