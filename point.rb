@@ -13,7 +13,7 @@ class Point
     r = self
     determinant = p.x * q.y + r.x*p.y + q.x*r.y - q.x*p.y - r.x*q.y - p.x*r.y
 
-    return true if determinant > 0
+    return true if determinant >= 0
     return false
   end
 
