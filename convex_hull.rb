@@ -4,15 +4,15 @@ require 'pry'
 require 'set'
 
 class ConvexHull
-  def compute points=load_example_points
+  def compute points=load_example_points, be_verbose = false
     all_sorted_points = points.sort {|a,b| a.x <=> b.x}
-    compute_edge_hull all_sorted_points
+    compute_edge_hull all_sorted_points, be_verbose
   end
 
   private
   # basic algorithm,
   # details here: http://www-m9.ma.tum.de/foswiki/pub/WS2009/AlgorithmischeGeometrie/FolienVAlgGeomV2.pdf
-  def compute_edge_hull points
+  def compute_edge_hull points, be_verbose = false
     return [ Edge.new(points.first, points.last)] if points.count <= 2
     return [
       Edge.new(points.first, points.last),
@@ -23,12 +23,16 @@ class ConvexHull
 
     points.permutation(2).each do |p_q|
       edge = Edge.new(p_q[0], p_q[1])
-      puts "checking: #{edge}"
       lot_passed = true
       points.each do |r|
         lot_passed = false unless r.left_of? edge.p1, edge.p2
       end
-      hull.push(edge) if lot_passed and not hull.include? edge
+      if lot_passed and not hull.include? edge
+        hull.push(edge)
+        puts "#{edge} is a hull edge" if be_verbose
+      end
+
+
     end
 
     return hull
@@ -57,4 +61,4 @@ end
 
 
 c = ConvexHull.new
-puts  c.compute [ p(1,1), p(2,1), p(3,5)]
+c.compute [ p(1,1), p(2,1), p(3,5), p(4,3), p(7,3)], true
