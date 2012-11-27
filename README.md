@@ -11,7 +11,7 @@ Run the example by calling `ruby example.rb`
 Programming
 -----------
 
-The source code is given in library style. Be sure to add `require lib/convex_hull`
+The source code is given in library style. Be sure to add `require_relative 'lib/convex_hull'`
 to your script.
 
 Call the convex hull calculation using the following syntax:
