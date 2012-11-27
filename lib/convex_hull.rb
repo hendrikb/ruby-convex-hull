@@ -6,7 +6,7 @@ require 'csv'
 
 module Geometry
   class ConvexHull
-    def self.compute points=load_example_points, be_verbose = false
+    def self.compute points, be_verbose = false
       start_time = DateTime.now
       all_sorted_points = points.sort {|a,b| a.x <=> b.x}
       polygon_hull = compute_edge_hull all_sorted_points, be_verbose
