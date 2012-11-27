@@ -1,0 +1,40 @@
+(0:151)-(7:77) is a hull edge
+(2:395)-(0:151) is a hull edge
+(7:77)-(17:7) is a hull edge
+(8:487)-(2:395) is a hull edge
+(17:7)-(28:4) is a hull edge
+(28:4)-(227:1) is a hull edge
+(80:500)-(8:487) is a hull edge
+(227:1)-(439:1) is a hull edge
+(316:64)-(316:64) is a hull edge
+(316:64)-(316:64) is a hull edge
+(393:500)-(80:500) is a hull edge
+(439:1)-(485:29) is a hull edge
+(479:477)-(393:500) is a hull edge
+(485:29)-(495:79) is a hull edge
+(487:445)-(479:477) is a hull edge
+(492:424)-(487:445) is a hull edge
+(495:79)-(500:183) is a hull edge
+(499:302)-(492:424) is a hull edge
+(500:183)-(499:302) is a hull edge
+Hull Calculation took 319255 microseconds
+(0:151)
+(7:77)
+(2:395)
+(17:7)
+(8:487)
+(28:4)
+(227:1)
+(80:500)
+(439:1)
+(316:64)
+(316:64)
+(393:500)
+(485:29)
+(479:477)
+(495:79)
+(487:445)
+(492:424)
+(500:183)
+(499:302)
+
