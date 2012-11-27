@@ -1,17 +1,24 @@
 require './point.rb'
+require './edge.rb'
 require 'pry'
 require 'set'
 
 class ConvexHull
   def compute points=load_example_points
     all_sorted_points = points.sort {|a,b| a.x <=> b.x}
-    compute_hull all_sorted_points
+    compute_edge_hull all_sorted_points
   end
 
   private
-  def compute_hull points
-    return points if points.count <= 3
-
+  # basic algorithm,
+  # details here: http://www-m9.ma.tum.de/foswiki/pub/WS2009/AlgorithmischeGeometrie/FolienVAlgGeomV2.pdf
+  def compute_edge_hull points
+    return [ Edge.new(points.first, points.last)] if points.count <= 2
+    return [
+      Edge.new(points.first, points.last),
+      Edge.new(points.first, points[1]),
+      Edge.new(points[1], points.last)
+    ] if points.count == 3
     hull = Array.new
 
     points.permutation(2).each do |p_q|
@@ -48,16 +55,6 @@ def p x,y
   Point.new(x,y)
 end
 
-class Edge
-  attr_accessor :p1,:p2
-  def initialize p1,p2
-    self.p1 = p1
-    self.p2 = p2
-  end
-  def to_s
-    "#{p1}-#{p2}"
-  end
-end
 
 c = ConvexHull.new
-puts  c.compute [ p(1,1), p(2,1), p(3,5), p(4,3), p(7,3)  ]
+puts  c.compute [ p(1,1), p(2,1), p(3,5)]
