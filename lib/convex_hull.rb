@@ -1,5 +1,5 @@
-require './point.rb'
-require './edge.rb'
+require_relative './point.rb'
+require_relative './edge.rb'
 require 'set'
 require 'csv'
 
