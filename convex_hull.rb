@@ -6,7 +6,16 @@ require 'set'
 class ConvexHull
   def compute points=load_example_points, be_verbose = false
     all_sorted_points = points.sort {|a,b| a.x <=> b.x}
-    compute_edge_hull all_sorted_points, be_verbose
+    polygon_hull = compute_edge_hull all_sorted_points, be_verbose
+
+    set = Array.new
+    polygon_hull.each do |edge|
+      set.push edge.p1 unless set.include? edge.p1
+      set.push edge.p2 unless set.include? edge.p2
+    end
+    binding.pry
+    return set
+
   end
 
   private
