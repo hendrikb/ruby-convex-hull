@@ -1,4 +1,4 @@
-require 'lib/convex_hull'
+require_relative 'lib/convex_hull'
 
 ## USAGE:
 # Example 1: (note how p(3,5) is not part of the hull anymore)
