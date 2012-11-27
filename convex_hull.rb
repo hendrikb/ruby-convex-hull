@@ -5,7 +5,7 @@ require 'set'
 require 'csv'
 
 class ConvexHull
-  def compute points=load_example_points, be_verbose = false
+  def self.compute points=load_example_points, be_verbose = false
     all_sorted_points = points.sort {|a,b| a.x <=> b.x}
     polygon_hull = compute_edge_hull all_sorted_points, be_verbose
 
@@ -20,7 +20,7 @@ class ConvexHull
   private
   # basic algorithm,
   # details here: http://www-m9.ma.tum.de/foswiki/pub/WS2009/AlgorithmischeGeometrie/FolienVAlgGeomV2.pdf
-  def compute_edge_hull points, be_verbose = false
+  def self.compute_edge_hull points, be_verbose = false
     return [ Edge.new(points.first, points.last)] if points.count <= 2
     return [
       Edge.new(points.first, points.last),
@@ -73,14 +73,12 @@ def p x,y
 end
 
 
-c = ConvexHull.new
-
-# Example 1:
-# c.compute [ p(1,1), p(2,1), p(3,5), p(4,3), p(7,3)], true
+# Example 1: (note how p(3,5) is not part of the hull anymore)
+# puts ConvexHull.compute [ p(1,1), p(2,1), p(3,5), p(4,3), p(7,3)], true
 
 # Example 2
-# puts c.compute load_example_points, false
+# puts ConvexHull.compute load_example_points, true
 
 # Example 3
-puts c.compute load_csv_example_points, true
+# puts ConvexHull.compute load_csv_example_points, true
 
