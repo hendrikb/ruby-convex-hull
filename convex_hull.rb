@@ -43,26 +43,29 @@ class ConvexHull
     return hull
   end
 
-  def load_example_points
-    [
-      Point.new(141,2),
-      Point.new(396,417),
-      Point.new(171,250),
-      Point.new(277,352),
-      Point.new(151,257),
-      Point.new(80,478),
-      Point.new(222,256),
-      Point.new(100,69),
-      Point.new(2,404),
-      Point.new(332,315)
-    ]
-  end
 end
 
+def load_example_points
+  [
+    Point.new(141,2),
+    Point.new(396,417),
+    Point.new(171,250),
+    Point.new(277,352),
+    Point.new(151,257),
+    Point.new(80,478),
+    Point.new(222,256),
+    Point.new(100,69),
+    Point.new(2,404),
+    Point.new(332,315)
+  ]
+end
 def p x,y
   Point.new(x,y)
 end
 
 
 c = ConvexHull.new
-c.compute [ p(1,1), p(2,1), p(3,5), p(4,3), p(7,3)], true
+#Example 1:
+# c.compute [ p(1,1), p(2,1), p(3,5), p(4,3), p(7,3)], true
+# Example 2
+puts c.compute load_example_points, false
