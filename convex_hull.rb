@@ -72,7 +72,7 @@ def p x,y
   Point.new(x,y)
 end
 
-
+## USAGE:
 # Example 1: (note how p(3,5) is not part of the hull anymore)
 # puts ConvexHull.compute [ p(1,1), p(2,1), p(3,5), p(4,3), p(7,3)], true
 
