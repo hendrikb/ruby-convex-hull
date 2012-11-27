@@ -50,7 +50,7 @@ module Geometry
       return hull
     end
 
-    def calc_time start_time, end_time
+    def self.calc_time start_time, end_time
       start_ms = start_time.strftime("%Q").to_i
       end_ms = end_time.strftime("%Q").to_i
       duration_ms = end_ms - start_ms
