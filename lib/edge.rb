@@ -1,3 +1,4 @@
+module Geometry
 class Edge
   attr_accessor :p1,:p2
   def initialize p1,p2
@@ -7,4 +8,5 @@ class Edge
   def to_s
     "#{p1}-#{p2}"
   end
+end
 end
