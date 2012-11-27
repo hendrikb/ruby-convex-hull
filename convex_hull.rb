@@ -13,9 +13,7 @@ class ConvexHull
       set.push edge.p1 unless set.include? edge.p1
       set.push edge.p2 unless set.include? edge.p2
     end
-    binding.pry
     return set
-
   end
 
   private
@@ -40,12 +38,9 @@ class ConvexHull
         hull.push(edge)
         puts "#{edge} is a hull edge" if be_verbose
       end
-
-
     end
 
     return hull
-
   end
 
   def load_example_points
