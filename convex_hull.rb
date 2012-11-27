@@ -70,6 +70,7 @@ def load_csv_example_points
   CSV.foreach("./random_numbers.csv", col_sep: ";", headers: true) do |row|
     points.push Point.new(row[1].to_i, row[2].to_i)
   end
+  points
 end
 
 def p x,y
